@@ -35,8 +35,8 @@ public class GeekClassLoader extends ClassLoader {
 				long fileSize = f.length();
 				FileInputStream fi = new FileInputStream(f);
 				byte[] buffer = new byte[(int)fileSize];
-		        fi.read(buffer);
-		        fi.close();
+		        	fi.read(buffer);
+		        	fi.close();
 		        result = new byte[buffer.length];
 		        for(int i=0;i<buffer.length;i++) {
 		        	result[i]=(byte)(255-Byte.toUnsignedInt(buffer[i]));
