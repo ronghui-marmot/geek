@@ -1,4 +1,4 @@
-package cn.geek.git.main;
+package cn.geek.git.main.week1;
 
 import java.io.File;
 import java.io.FileInputStream;
