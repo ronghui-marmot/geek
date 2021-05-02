@@ -37,10 +37,10 @@ public class GeekClassLoader extends ClassLoader {
 				byte[] buffer = new byte[(int)fileSize];
 		        	fi.read(buffer);
 		        	fi.close();
-		        result = new byte[buffer.length];
-		        for(int i=0;i<buffer.length;i++) {
-		        	result[i]=(byte)(255-Byte.toUnsignedInt(buffer[i]));
-		        }
+		        	result = new byte[buffer.length];
+		        	for(int i=0;i<buffer.length;i++) {
+		        		result[i]=(byte)(255-Byte.toUnsignedInt(buffer[i]));
+		        	}
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
