@@ -1,7 +1,8 @@
 package cn.geek.git.main.week1;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class GeekClassLoader extends ClassLoader {
@@ -28,19 +29,15 @@ public class GeekClassLoader extends ClassLoader {
 	private byte[] parse(String filename) {
 		byte[] result = null;
 		if(null != filename) {
-			String path = System.getProperty("user.dir");
-			String prefix = path+"/resources/";
+			String dir = System.getProperty("user.dir");
+			String prefix = dir+"/resources/";
+			Path path = Paths.get(prefix+filename);
 			try {
-				File f = new File(prefix+filename);
-				long fileSize = f.length();
-				FileInputStream fi = new FileInputStream(f);
-				byte[] buffer = new byte[(int)fileSize];
-		        	fi.read(buffer);
-		        	fi.close();
-		        	result = new byte[buffer.length];
-		        	for(int i=0;i<buffer.length;i++) {
-		        		result[i]=(byte)(255-Byte.toUnsignedInt(buffer[i]));
-		        	}
+				byte[] buffer = Files.readAllBytes(path);
+	        	result = new byte[buffer.length];
+	        	for(int i=0;i<buffer.length;i++) {
+	        		result[i]=(byte)(0xFF-buffer[i]);
+	        	}
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
