@@ -13,11 +13,14 @@ public class BackendServer {
 
         ExecutorService executorService = Executors.newFixedThreadPool(
                 Runtime.getRuntime().availableProcessors() + 2);
-        final ServerSocket serverSocket = new ServerSocket(8088);
+        final ServerSocket serverSocket1 = new ServerSocket(8801);
+        final ServerSocket serverSocket2 = new ServerSocket(8802);
         while (true) {
             try {
-                final Socket socket = serverSocket.accept();
-                executorService.execute(() -> service(socket));
+                final Socket socket1 = serverSocket1.accept();
+                executorService.execute(() -> service(socket1));
+                final Socket socket2 = serverSocket2.accept();
+                executorService.execute(()->service(socket2));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -30,7 +33,8 @@ public class BackendServer {
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
             printWriter.println("HTTP/1.1 200 OK");
             printWriter.println("Content-Type:text/html;charset=utf-8");
-            String body = "hello,nio";
+            int port = socket.getLocalPort();
+            String body = "hello,nio "+port;
             printWriter.println("Content-Length:" + body.getBytes().length);
             printWriter.println();
             printWriter.write(body);

@@ -14,6 +14,7 @@ import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpUtil;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.concurrent.FutureCallback;
 import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
@@ -22,10 +23,10 @@ import org.apache.http.impl.nio.reactor.IOReactorConfig;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
+import cn.git.zrh.Week3_4_MarmotHttpRouter;
+
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.*;
-import java.util.logging.Filter;
 import java.util.stream.Collectors;
 
 import static io.netty.handler.codec.http.HttpResponseStatus.NO_CONTENT;
@@ -39,7 +40,8 @@ public class HttpOutboundHandler {
     private List<String> backendUrls;
 
     HttpResponseFilter filter = new HeaderHttpResponseFilter();
-    HttpEndpointRouter router = new RandomHttpEndpointRouter();
+//    修改为自定义路由
+    Week3_4_MarmotHttpRouter router = new Week3_4_MarmotHttpRouter();
 
     public HttpOutboundHandler(List<String> backends) {
 
@@ -81,6 +83,11 @@ public class HttpOutboundHandler {
     
     private void fetchGet(final FullHttpRequest inbound, final ChannelHandlerContext ctx, final String url) {
         final HttpGet httpGet = new HttpGet(url);
+        RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(5000)
+        		.setConnectionRequestTimeout(5000)
+        		.setSocketTimeout(5000)
+        		.build();
+        httpGet.setConfig(requestConfig);
         //httpGet.setHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_CLOSE);
         httpGet.setHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         httpGet.setHeader("mao", inbound.headers().get("mao"));

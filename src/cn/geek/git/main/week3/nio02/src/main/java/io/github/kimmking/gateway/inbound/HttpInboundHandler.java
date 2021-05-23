@@ -6,9 +6,12 @@ import io.github.kimmking.gateway.outbound.httpclient4.HttpOutboundHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.HttpMethod;
 import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import cn.git.zrh.MarmotOutboundHandler;
 
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
     
     public HttpInboundHandler(List<String> proxyServer) {
         this.proxyServer = proxyServer;
+//        this.handler = new MarmotOutboundHandler(this.proxyServer);
         this.handler = new HttpOutboundHandler(this.proxyServer);
     }
     
@@ -34,13 +38,15 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
         try {
             //logger.info("channelRead流量接口请求开始，时间为{}", startTime);
             FullHttpRequest fullRequest = (FullHttpRequest) msg;
-//            String uri = fullRequest.uri();
+//            一般是通过uri和方法来进行路由控制
+            String uri = fullRequest.uri();
+            HttpMethod method = fullRequest.method();
 //            //logger.info("接收到的请求url为{}", uri);
 //            if (uri.contains("/test")) {
 //                handlerTest(fullRequest, ctx);
 //            }
-    
             handler.handle(fullRequest, ctx, filter);
+            
     
         } catch(Exception e) {
             e.printStackTrace();
