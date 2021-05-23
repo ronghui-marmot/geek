@@ -83,11 +83,11 @@ public class HttpOutboundHandler {
     
     private void fetchGet(final FullHttpRequest inbound, final ChannelHandlerContext ctx, final String url) {
         final HttpGet httpGet = new HttpGet(url);
-        RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(5000)
-        		.setConnectionRequestTimeout(5000)
-        		.setSocketTimeout(5000)
-        		.build();
-        httpGet.setConfig(requestConfig);
+//        RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(5000)
+//        		.setConnectionRequestTimeout(5000)
+//        		.setSocketTimeout(5000)
+//        		.build();
+//        httpGet.setConfig(requestConfig);
         //httpGet.setHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_CLOSE);
         httpGet.setHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         httpGet.setHeader("mao", inbound.headers().get("mao"));
