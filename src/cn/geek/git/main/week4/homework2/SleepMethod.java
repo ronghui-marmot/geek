@@ -1,4 +1,4 @@
-package cn.geek.git.main.week4;
+package cn.geek.git.main.week4.homework2;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -27,5 +27,7 @@ public class SleepMethod {
 		ExecutorService  pool = Executors.newFixedThreadPool(poolSize);
 		pool.submit(t);
 		pool.shutdown();
+//		方法三：利用线程的join方法
+		t.join();
 	}
 }

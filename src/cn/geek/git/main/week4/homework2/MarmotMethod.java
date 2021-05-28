@@ -1,4 +1,4 @@
-package cn.geek.git.main.week4;
+package cn.geek.git.main.week4.homework2;
 
 public class MarmotMethod {
 	private  final int num = 123;
