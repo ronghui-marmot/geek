@@ -46,6 +46,12 @@
 
 #### unpark(Thread)
 
+### Future/FutureTask/CompletableFuture
+
+### ThreadLocal
+
+### Stream
+
 ## 线程池
 
 ### 作用
@@ -170,4 +176,64 @@
 
 #### AbstractQueueeSynchronizer：队列同步器
 
-#### semaphore：信号量
+#### Semaphore：信号量
+
+##### Semaphore(int):1即为独占锁
+
+##### Semaphore(int,boolean)：布尔值代表是否公平锁
+
+#### CountDownLatch(int)：等N个子线程完成后主线程继续
+
+##### await
+
+##### countDown：等待数减一
+
+##### getCount
+
+#### CyclicBarrier：阻塞N个线程等N个线程唤醒后继续
+
+##### CyclicBarrier(int)/CyclicBarrier(int,Runnable)
+
+##### await/await(long,TimeUnit)
+
+##### reset
+
+## 集合类
+
+### ArrayList
+
+#### 基于数组，扩容成本高
+
+#### 写冲突
+
+#### 读写冲突
+
+### LinkedList
+
+#### 链表实现，无需扩容，双指针
+
+#### 写冲突
+
+#### 读写冲突
+
+### CopyOnWriteArrayList
+
+#### 读写分离，读无需加锁
+
+#### 新建副本，写加锁，原容器引用到新副本
+
+### HashMap：利用hash原理，存放k-v对象
+
+#### 写冲突
+
+#### 读写冲突
+
+#### keys()无序
+
+### LinkedHashMap:在HashMap基础上新增双向链表，保证有序
+
+#### 写冲突
+
+#### 读写冲突
+
+### ConcurrentHashMap：分段锁或CAS

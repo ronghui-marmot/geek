@@ -1,5 +1,6 @@
 package cn.geek.git.main.week4.homework2;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
@@ -17,6 +18,9 @@ public class SleepMethod {
 //		------------方法八start----------
 		CyclicBarrier barrier = new CyclicBarrier(2);
 //		-------------方法八end-----------
+//		---------------方法九start----------
+		ArrayBlockingQueue queue = new ArrayBlockingQueue(1);
+//		-------------方法九end--------------
 		Runnable r = new Runnable() {
 			@Override
 			public void run() {
@@ -33,6 +37,9 @@ public class SleepMethod {
 						e.printStackTrace();
 					}
 //					-------------方法八end-----------
+//					---------方法九start--------
+					queue.put(1);
+//					-----------方法九end
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -53,7 +60,7 @@ public class SleepMethod {
 //		方法三：利用线程的join方法，本质也是获取t.wait()方法
 //		t.join();
 //		方法四：LockMethod类 利用wait notify方法，需要注意的是需要先获得该对象的锁
-//		方法五：LockMethod2类 利用Lock锁机制	
+//		方法五：LockMethod2类 利用Lock锁机制,ReentrantLock.lock/unlock方法	
 //		方法六：LockMethod类利用LockSupport.park/unpark方法 ?没成功？？？
 //		方法七：SleepMethod类 利用CountDownLatch的await与countdown方法
 //		方法八：SleepMethod类 利用CyclicBarrier将主线程与子线程作为
@@ -65,5 +72,9 @@ public class SleepMethod {
 //			e.printStackTrace();
 //		}
 //		-------方法八end----------
+//		方法九：SleepMethod类 利用BlockingQueue的put/take阻塞方法，可是主线程没法关闭？
+//		------------方法九start------------
+		queue.take();
+//		------------方法九end------------
 	}
 }
