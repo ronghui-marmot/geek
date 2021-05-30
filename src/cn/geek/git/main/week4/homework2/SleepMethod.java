@@ -76,5 +76,6 @@ public class SleepMethod {
 //		------------方法九start------------
 		queue.take();
 //		------------方法九end------------
+//		LockSupport?
 	}
 }
