@@ -6,9 +6,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
+/**
+ * 该测试类没有实现自动装配，运行报错了。待查看原因
+ * @author rongh
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=MarmotBeanConfig1.class)
+@ContextConfiguration("MarmotBeanConfig1.class")
 public class TestAutoWire1 {
 	@Autowired
 	private MarmotBean1 bean1;
