@@ -1,13 +1,13 @@
-package cn.geek.git.main.week5;
+package zrh;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class ZrhApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(ZrhApplication.class, args);
 	}
 
 }

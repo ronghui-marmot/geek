@@ -1,11 +1,11 @@
-package cn.geek.git.main.week5;
+package zrh;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages="cn.geek.git.main.week5")
+@ComponentScan(basePackages="zrh")
 public class MarmotBeanConfig1 {
 	@Bean
 	public MarmotBean1 setBean() {

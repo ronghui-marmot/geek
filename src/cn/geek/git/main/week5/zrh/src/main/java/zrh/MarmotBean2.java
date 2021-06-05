@@ -1,7 +1,11 @@
-package cn.geek.git.main.week5;
+package zrh;
+
 
 public class MarmotBean2 {
 	private String name;
+	public MarmotBean2() {
+		
+	}
 	
 	public MarmotBean2(String name) {
 		this.name = name;

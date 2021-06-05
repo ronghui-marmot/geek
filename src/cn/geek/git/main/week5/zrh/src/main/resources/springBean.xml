@@ -9,15 +9,15 @@
     http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-	<bean id="marmotBean2" class="cn.geek.git.main.week5.MarmotBean2">
-	<constructor-arg name="name" value="100"></constructor-arg>
+    
+    <context:component-scan base-package="zrh"></context:component-scan>
+    
+	<bean id="marmotBean2" class="zrh.MarmotBean2">
+		<property name="name" value="marmot2"></property>
 	</bean>
 	
-	<context:annotation-config />
 </beans>
 
-<!-- 
-<context:component-scan base-package="cn.geek.git.main.week5"></context:component-scan>
- -->
+
 
 

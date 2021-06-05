@@ -1,4 +1,4 @@
-package cn.geek.git.main.week5;
+package zrh;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -12,13 +12,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("MarmotBeanConfig1.class")
+//@ContextConfiguration("MarmotBeanConfig1.class")
+@ContextConfiguration(locations = {"classpath*:springbean.xml"})
 public class TestAutoWire1 {
 	@Autowired
-	private MarmotBean1 bean1;
+	private MarmotBean2 bean2;
 	
 	@Test
 	public void beanNotNull() {
-		Assert.assertNotNull(bean1);
+		Assert.assertNotNull(bean2);
 	}
 }
