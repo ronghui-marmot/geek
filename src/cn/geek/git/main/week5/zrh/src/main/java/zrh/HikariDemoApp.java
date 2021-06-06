@@ -14,16 +14,16 @@ import org.springframework.test.context.ContextConfiguration;
 import com.zaxxer.hikari.HikariDataSource;
 
 
-@SpringBootApplication
+//@SpringBootApplication
 //@ContextConfiguration(locations = {"classpath*:springBean.xml"})
-@ConfigurationProperties
+//@ConfigurationProperties
 public class HikariDemoApp implements CommandLineRunner  {
-	@Autowired
+//	@Autowired
 	private HikariDataSource datasource;
 	
-	public static void main(String[] args) {
-		SpringApplication.run(HikariDemoApp.class, args);
-	}
+//	public static void main(String[] args) {
+//		SpringApplication.run(HikariDemoApp.class, args);
+//	}
 	
 	public void run(String... args) throws Exception{
 		Connection conn = datasource.getConnection();

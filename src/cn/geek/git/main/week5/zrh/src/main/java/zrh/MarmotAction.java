@@ -11,7 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 public class MarmotAction {
 	
-	@Autowired MarmotService marmotService;
+	@Autowired 
+	MarmotService marmotService;
 	
 	@RequestMapping("/find")
 	public String find(int id) {

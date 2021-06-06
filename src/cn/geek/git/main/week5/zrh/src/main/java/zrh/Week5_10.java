@@ -60,10 +60,10 @@ public class Week5_10 {
 		
 	}
 	
-	public static void main(String[] args) {
-		Week5_10 w510 = new Week5_10();
-		w510.init();
-	}
-	
+//	public static void main(String[] args) {
+//		Week5_10 w510 = new Week5_10();
+//		w510.init();
+//	}
+//	
 	
 }

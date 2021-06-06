@@ -1,11 +1,13 @@
 package zrh;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+@Service
 public class MarmotService {
 	@Autowired
 	MarmotDao mmDao;
-	
+	@Bean
 	public User find(int id) {
 		return mmDao.getOne(id);
 	}
