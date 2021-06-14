@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 public class MarmotService {
 	@Autowired
 	MarmotDao mmDao;
-	@Bean
 	public User find(int id) {
 		return mmDao.getOne(id);
 	}
