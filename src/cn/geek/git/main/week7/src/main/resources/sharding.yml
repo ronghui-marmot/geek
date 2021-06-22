@@ -1,0 +1,13 @@
+dataSources:
+  ds_0: !!org.apache.commons.dbcp2.BasicDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3316/db;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false;MODE=MYSQL
+    username: root
+    password: 123456
+  ds_1: !!org.apache.commons.dbcp2.BasicDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3326/db;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false;MODE=MYSQL
+    username: root
+    password: 123456
+    
+    

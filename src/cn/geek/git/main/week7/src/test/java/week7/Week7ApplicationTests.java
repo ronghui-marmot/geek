@@ -1,5 +1,7 @@
 package week7;
 
+import javax.annotation.Resource;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.junit.jupiter.api.Test;
@@ -35,7 +37,7 @@ class Week7ApplicationTests {
 //	@Autowired
 //	private MockMvc mockMvc;
 	
-	@Autowired
+	@Resource(name = "userService")
     private UserService userService;
 	
 //	@Test
