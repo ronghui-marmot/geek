@@ -14,7 +14,7 @@ import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFac
 public class ShadingDatasource {
 	
 	public static void main(String[] args) {
-		File yamlFile = new File("C:\\Users\\rongh\\Desktop\\geek\\src\\cn\\geek\\git\\main\\week7\\src\\main\\resources\\sharding.yml");
+		File yamlFile = new File("C:\\Users\\rongh\\Desktop\\geek\\src\\cn\\geek\\git\\main\\week7\\src\\main\\resources\\application.yml");
 		try {
 			DataSource datasource = YamlShardingSphereDataSourceFactory.createDataSource(yamlFile);
 			String sql = "SELECT * FROM user_baseinfo";
