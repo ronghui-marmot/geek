@@ -12,10 +12,20 @@ import okhttp3.RequestBody;
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import net.sf.cglib.proxy.*;
 public final class Rpcfx {
 
     static {
@@ -41,11 +51,39 @@ public final class Rpcfx {
 
     public static <T> T create(final Class<T> serviceClass, final String url, Filter... filters) {
 
-        // 0. 替换动态代理 -> AOP
-        return (T) Proxy.newProxyInstance(Rpcfx.class.getClassLoader(), new Class[]{serviceClass}, new RpcfxInvocationHandler(serviceClass, url, filters));
-
+        // 0. 替换动态代理 ->字节码生成
+//        return (T) Proxy.newProxyInstance(Rpcfx.class.getClassLoader(), new Class[]{serviceClass}, new RpcfxInvocationHandler(serviceClass, url, filters));
+    	Enhancer enhancer = new Enhancer();
+    	enhancer.setInterfaces(new Class[] {serviceClass});
+    	enhancer.setCallback(new EnhancerProxy(serviceClass,url,filters));
+    	T service = (T)enhancer.create();
+    	return service;
     }
-
+    
+    public static class EnhancerProxy implements MethodInterceptor {
+        private final Class<?> serviceClass;
+        private final String url;
+        private final Filter[] filters;
+        
+        public <T> EnhancerProxy(Class<T> serviceClass, String url, Filter... filters) {
+            this.serviceClass = serviceClass;
+            this.url = url;
+            this.filters = filters;
+        }
+		@Override
+		public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+			// TODO Auto-generated method stub
+			Object object = null;
+			try {
+				object = new RpcfxInvocationHandler(serviceClass, url, filters).invoke(obj,method, args);
+				
+			}catch(RpcfxException e) {
+				e.printStackTrace();
+			}
+			return object;
+		}
+    	
+    }
     public static class RpcfxInvocationHandler implements InvocationHandler {
 
         public static final MediaType JSONTYPE = MediaType.get("application/json; charset=utf-8");
@@ -53,7 +91,7 @@ public final class Rpcfx {
         private final Class<?> serviceClass;
         private final String url;
         private final Filter[] filters;
-
+        
         public <T> RpcfxInvocationHandler(Class<T> serviceClass, String url, Filter... filters) {
             this.serviceClass = serviceClass;
             this.url = url;
@@ -90,7 +128,10 @@ public final class Rpcfx {
 
             // 这里判断response.status，处理异常
             // 考虑封装一个全局的RpcfxException
-
+            if(!response.isStatus())
+            {
+            	throw new RpcfxException();
+            }
             return JSON.parse(response.getResult().toString());
         }
 
@@ -100,12 +141,20 @@ public final class Rpcfx {
 
             // 1.可以复用client
             // 2.尝试使用httpclient或者netty client
-            OkHttpClient client = new OkHttpClient();
-            final Request request = new Request.Builder()
-                    .url(url)
-                    .post(RequestBody.create(JSONTYPE, reqJson))
-                    .build();
-            String respJson = client.newCall(request).execute().body().string();
+//            OkHttpClient client = new OkHttpClient();
+//            final Request request = new Request.Builder()
+//                    .url(url)
+//                    .post(RequestBody.create(JSONTYPE, reqJson))
+//                    .build();
+//            String respJson = client.newCall(request).execute().body().string();
+//            
+//            httpclient
+            CloseableHttpClient client = HttpClientBuilder.create().build();
+            HttpPost httpPost = new HttpPost(url);
+            httpPost.addHeader("Content-Type", "application/json");
+            httpPost.setEntity(new StringEntity(reqJson, Charset.forName("UTF-8")));
+            HttpResponse response = client.execute(httpPost);
+            String respJson	= EntityUtils.toString(response.getEntity());
             System.out.println("resp json: "+respJson);
             return JSON.parseObject(respJson, RpcfxResponse.class);
         }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+">
+
+
+<bean id="userServiceImpl" class="io.kimmking.rpcfx.demo.provider.UserServiceImpl"></bean>
+<bean id="orderServiceImpl" class="io.kimmking.rpcfx.demo.provider.OrderServiceImpl"></bean>
+	
+<bean id="userService" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="target" ref="userServiceImpl"></property>
+  	<property name="proxyInterfaces" value="io.kimmking.rpcfx.demo.api.UserService"></property>
+</bean>
+<bean id="orderService" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="target" ref="orderServiceImpl"></property>
+  	<property name="proxyInterfaces" value="io.kimmking.rpcfx.demo.api.OrderService"></property>
+</bean>
+<bean id="proxy" class="java.lang.reflect.Proxy"></bean>
+</beans>

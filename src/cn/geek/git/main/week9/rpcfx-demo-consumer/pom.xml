@@ -27,7 +27,11 @@
             <artifactId>rpcfx-demo-api</artifactId>
             <version>${project.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>io.kimmking</groupId>
+            <artifactId>rpcfx-demo-provider</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

@@ -23,7 +23,11 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.70</version>
 		</dependency>
-
+    	<dependency>
+        	<groupId>cglib</groupId>
+        	<artifactId>cglib</artifactId>
+        	<version>3.3.0</version>
+    	</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -35,7 +39,14 @@
 			<artifactId>okhttp</artifactId>
 			<version>3.12.2</version>
 		</dependency>
-
+		<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
 
 		<dependency>
 			<groupId>org.apache.curator</groupId>
