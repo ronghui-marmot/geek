@@ -19,7 +19,7 @@ public class Account2ServiceImpl implements Account2Service {
     @HmilyTCC(confirmMethod = "confirmMethod", cancelMethod = "cancelMethod")
     public Boolean increaseBalance(String user_id, BigDecimal amount) {
         accountInfoMapper.increaseAccountBalance(user_id, amount);
-        log.info("******** Bank2 Service Begin try ...");
+        log.info("******** Account2 Service Begin try ...");
         return Boolean.TRUE;
     }
 
@@ -31,12 +31,12 @@ public class Account2ServiceImpl implements Account2Service {
 
     public void confirmMethod(String user_id, Double amount) {
         accountInfoMapper.confirmAccountBalance();
-        log.info("******** Bank2 Service commit...  ");
+        log.info("******** Account2 Service commit...  ");
     }
 
     public void cancelMethod(String user_id, Double amount) {
         accountInfoMapper.cancelAccountBalance(user_id);
-        log.info("******** Bank2 Service begin cancel...  ");
+        log.info("******** Account2 Service begin cancel...  ");
 
     }
 }
