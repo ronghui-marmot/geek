@@ -45,9 +45,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.13.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.0.13.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.22" level="project" />
-    <orderEntry type="library" name="Maven: redis.clients:jedis:3.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.26" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.70" level="project" />
     <orderEntry type="library" name="Maven: org.redisson:redisson-spring-boot-starter:3.14.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-actuator:2.0.9.RELEASE" level="project" />
@@ -86,6 +83,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-oxm:5.0.13.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.0.13.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:5.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: redis.clients:jedis:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.26" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.0.9.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.0.9.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.0.9.RELEASE" level="project" />

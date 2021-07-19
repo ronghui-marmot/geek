@@ -7,4 +7,10 @@ logging:
       kimmking:
         cache : info
 
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+
 # 作业，在这里使用spring boot配置各项内容，
