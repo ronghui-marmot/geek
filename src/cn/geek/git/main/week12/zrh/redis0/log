@@ -1,0 +1,63 @@
+1:C 24 Jul 2021 10:52:29.147 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 24 Jul 2021 10:52:29.156 # Redis version=6.2.4, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 24 Jul 2021 10:52:29.161 # Configuration loaded
+1:M 24 Jul 2021 10:52:29.171 * monotonic clock: POSIX clock_gettime
+1:M 24 Jul 2021 10:52:29.177 # Warning: Could not create server TCP listening socket ::1:6379: bind: Cannot assign requested address
+1:M 24 Jul 2021 10:52:29.189 * Running mode=standalone, port=6379.
+1:M 24 Jul 2021 10:52:29.195 # Server initialized
+1:M 24 Jul 2021 10:52:29.215 * DB loaded from append only file: 0.013 seconds
+1:M 24 Jul 2021 10:52:29.225 * Ready to accept connections
+1:signal-handler (1627124196) Received SIGTERM scheduling shutdown...
+1:M 24 Jul 2021 10:56:36.568 # User requested shutdown...
+1:M 24 Jul 2021 10:56:36.573 * Calling fsync() on the AOF file.
+1:M 24 Jul 2021 10:56:36.577 * Saving the final RDB snapshot before exiting.
+1:M 24 Jul 2021 10:56:36.593 * DB saved on disk
+1:M 24 Jul 2021 10:56:36.598 * Removing the pid file.
+1:M 24 Jul 2021 10:56:36.606 # Redis is now ready to exit, bye bye...
+1:C 24 Jul 2021 10:56:37.662 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 24 Jul 2021 10:56:37.676 # Redis version=6.2.4, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 24 Jul 2021 10:56:37.680 # Configuration loaded
+1:M 24 Jul 2021 10:56:37.697 * monotonic clock: POSIX clock_gettime
+1:M 24 Jul 2021 10:56:37.710 * Running mode=standalone, port=6379.
+1:M 24 Jul 2021 10:56:37.715 # Server initialized
+1:M 24 Jul 2021 10:56:37.732 * DB loaded from append only file: 0.012 seconds
+1:M 24 Jul 2021 10:56:37.739 * Ready to accept connections
+1:signal-handler (1627124203) Received SIGTERM scheduling shutdown...
+1:M 24 Jul 2021 10:56:43.876 # User requested shutdown...
+1:M 24 Jul 2021 10:56:43.881 * Calling fsync() on the AOF file.
+1:M 24 Jul 2021 10:56:43.886 * Saving the final RDB snapshot before exiting.
+1:M 24 Jul 2021 10:56:43.913 * DB saved on disk
+1:M 24 Jul 2021 10:56:43.921 * Removing the pid file.
+1:M 24 Jul 2021 10:56:43.925 # Redis is now ready to exit, bye bye...
+1:C 24 Jul 2021 10:56:47.475 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 24 Jul 2021 10:56:47.479 # Redis version=6.2.4, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 24 Jul 2021 10:56:47.488 # Configuration loaded
+1:M 24 Jul 2021 10:56:47.504 * monotonic clock: POSIX clock_gettime
+1:M 24 Jul 2021 10:56:47.512 * Running mode=standalone, port=6379.
+1:M 24 Jul 2021 10:56:47.529 # Server initialized
+1:M 24 Jul 2021 10:56:47.557 * DB loaded from append only file: 0.019 seconds
+1:M 24 Jul 2021 10:56:47.560 * Ready to accept connections
+1:signal-handler (1627124331) Received SIGTERM scheduling shutdown...
+1:M 24 Jul 2021 10:58:51.613 # User requested shutdown...
+1:M 24 Jul 2021 10:58:51.675 * Calling fsync() on the AOF file.
+1:M 24 Jul 2021 10:58:51.800 * Saving the final RDB snapshot before exiting.
+1:M 24 Jul 2021 10:58:51.876 * DB saved on disk
+1:M 24 Jul 2021 10:58:51.883 * Removing the pid file.
+1:M 24 Jul 2021 10:58:51.896 # Redis is now ready to exit, bye bye...
+1:C 24 Jul 2021 10:59:17.812 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 24 Jul 2021 10:59:17.817 # Redis version=6.2.4, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 24 Jul 2021 10:59:17.823 # Configuration loaded
+1:M 24 Jul 2021 10:59:17.831 * monotonic clock: POSIX clock_gettime
+1:M 24 Jul 2021 10:59:17.840 * Running mode=standalone, port=6379.
+1:M 24 Jul 2021 10:59:17.852 # Server initialized
+1:M 24 Jul 2021 10:59:17.862 * DB loaded from append only file: 0.005 seconds
+1:M 24 Jul 2021 10:59:17.865 * Ready to accept connections
+1:M 24 Jul 2021 11:07:34.994 * Replica 172.17.0.3:6380 asks for synchronization
+1:M 24 Jul 2021 11:07:34.998 * Partial resynchronization not accepted: Replication ID mismatch (Replica asked for '0ea950ffe25ccea10a181e67b5ca4cc04c5a340a', my replication IDs are 'bcc4ec5881c6f7ad081ac753672893dec3c60082' and '0000000000000000000000000000000000000000')
+1:M 24 Jul 2021 11:07:35.002 * Replication backlog created, my new replication IDs are 'd8f451227e4244421bec4152dd8e17554b050092' and '0000000000000000000000000000000000000000'
+1:M 24 Jul 2021 11:07:35.006 * Starting BGSAVE for SYNC with target: disk
+1:M 24 Jul 2021 11:07:35.011 * Background saving started by pid 31
+31:C 24 Jul 2021 11:07:35.032 * DB saved on disk
+31:C 24 Jul 2021 11:07:35.040 * RDB: 0 MB of memory used by copy-on-write
+1:M 24 Jul 2021 11:07:35.120 * Background saving terminated with success
+1:M 24 Jul 2021 11:07:35.144 * Synchronization with replica 172.17.0.3:6380 succeeded
