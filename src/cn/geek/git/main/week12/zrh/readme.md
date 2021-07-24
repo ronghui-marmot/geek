@@ -14,3 +14,8 @@ docker inspect containerid cb09c8508db2
 #主服务器ip为172.17.0.2
 slaveof 172.17.0.2 6379
 
+docker run -p 26379:26379 --name sentinel0 -v C:/Users/rongh/Desktop/geek/src/cn/geek/git/main/week12/zrh/sentinel0.conf:/etc/redis/sentinel0.conf -v C:/Users/rongh/Desktop/geek/src/cn/geek/git/main/week12/zrh:/data -d redis redis-sentinel /etc/redis/sentinel0.conf
+
+docker run -p 26380:26380 --name sentinel1 -v C:/Users/rongh/Desktop/geek/src/cn/geek/git/main/week12/zrh/sentinel1.conf:/etc/redis/sentinel1.conf -v C:/Users/rongh/Desktop/geek/src/cn/geek/git/main/week12/zrh:/data -d redis redis-sentinel /etc/redis/sentinel1.conf
+
+
