@@ -15,24 +15,24 @@ public class JedisUtil {
         JedisUtil.jedisPool = jedisPool;
     }
     /**
-     * 对某个键的值自增
+     * 实现减库存
      * @author zhengrh
      * @param key 键
      * @param cacheSeconds 超时时间，0为不超时
      * @return
      */
-    public static long setIncr(String key, int cacheSeconds) {
+    public static long setDecr(String key, long amount, int cacheSeconds) {
         long result = 0;
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
-            result =jedis.incr(key);
+            result =jedis.decrBy(key,amount);
             if (result<=1 && cacheSeconds != 0) {
                 jedis.expire(key, cacheSeconds);
             }
-            logger.debug("set "+ key + " = " + result);
+            logger.debug("setDecr "+ key + " by " + amount);
         } catch (Exception e) {
-            logger.warn("set "+ key + " = " + result);
+            logger.warn("setDecr "+ key + " by " + amount);
         } finally {
             jedisPool.close();
         }
